@@ -1,82 +1,347 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kübra ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>Kübra ❤️</title>
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #ff4b6e, #ff8fa3);
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        .container {
-            padding: 30px;
-        }
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #ff5f7e, #ffb6c9, #ffd6e0);
+}
 
-        .heart {
-            font-size: 90px;
-            animation: heartbeat 1s infinite;
-        }
+/* Arka plan süsleri */
 
-        h1 {
-            font-size: 42px;
-            margin: 20px 0;
-        }
+.decoration {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
 
-        p {
-            font-size: 24px;
-        }
+.heart,
+.flower {
+    position: absolute;
+    animation: float 7s linear infinite;
+    opacity: 0.8;
+}
 
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background: white;
-            color: #ff4b6e;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-        }
+.heart {
+    font-size: 25px;
+}
 
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
+.flower {
+    font-size: 30px;
+}
 
-            50% {
-                transform: scale(1.2);
-            }
-        }
-    </style>
+.heart:nth-child(1) {
+    left: 10%;
+    bottom: -50px;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 30%;
+    bottom: -50px;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+    left: 60%;
+    bottom: -50px;
+    animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+    left: 85%;
+    bottom: -50px;
+    animation-delay: 1s;
+}
+
+.flower:nth-child(5) {
+    left: 20%;
+    bottom: -50px;
+    animation-delay: 3s;
+}
+
+.flower:nth-child(6) {
+    left: 75%;
+    bottom: -50px;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Ana kutu */
+
+.container {
+    position: relative;
+    z-index: 5;
+    width: 90%;
+    max-width: 600px;
+    padding: 35px 25px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 40px rgba(100,0,30,0.25);
+}
+
+.heart-main {
+    font-size: 85px;
+    animation: heartbeat 1.2s infinite;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.subtitle {
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+/* Kutu */
+
+.love-box {
+    margin: 30px auto 0;
+    width: 230px;
+    height: 150px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.love-box:hover {
+    transform: scale(1.05);
+}
+
+.box-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 200px;
+    height: 100px;
+    background: #ff4f72;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.box-lid {
+    position: absolute;
+    top: 30px;
+    left: 5px;
+    width: 220px;
+    height: 35px;
+    background: #ff315b;
+    border-radius: 8px;
+    z-index: 3;
+    transition: 0.7s;
+}
+
+.ribbon {
+    position: absolute;
+    left: 92px;
+    top: 0;
+    width: 45px;
+    height: 150px;
+    background: #ffd1dc;
+    opacity: 0.9;
+    z-index: 4;
+}
+
+.box-text {
+    position: absolute;
+    z-index: 6;
+    top: 70px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.love-box.open .box-lid {
+    transform: translateY(-65px) rotate(-5deg);
+}
+
+/* Mesaj */
+
+.message {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.92);
+    color: #ff416c;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: appear 0.8s ease;
+}
+
+.message h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.message p {
+    font-size: 21px;
+    line-height: 1.7;
+    font-weight: bold;
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobil */
+
+@media(max-width:600px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 19px;
+    }
+
+    .heart-main {
+        font-size: 70px;
+    }
+
+    .message p {
+        font-size: 18px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="decoration">
 
-        <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💗</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
 
-        <h1>Kübra seni çok seviyorum ❤️</h1>
-          
-        <a class="button" href="#">
-            Seni Çok Seviyorum Huzurum İyikimm ❤️
-        </a>
+    <div class="flower">🌼</div>
+    <div class="flower">🌼</div>
+
+</div>
+
+<div class="container">
+
+    <div class="heart-main">❤️</div>
+
+    <h1>Kübra seni çok seviyorum ❤️</h1>
+
+    <div class="subtitle">
+        Sen benim huzurumsun 🥹<br>
+        İyi ki varsın, iyi ki hayatımdasın 🌼
+    </div>
+
+    <div class="love-box" onclick="openLove()">
+
+        <div class="box-lid"></div>
+
+        <div class="box-bottom"></div>
+
+        <div class="ribbon"></div>
+
+        <div class="box-text">
+            Bana tıkla ❤️
+        </div>
 
     </div>
 
+    <div class="message" id="message">
+
+        <h2>İyikimmm ❤️🌼</h2>
+
+        <p>
+            Seni seviyorum<br>
+            İyi ki varsın<br>
+            Her zaman yanındayım ❤️
+        </p>
+
+        <p>
+            Sen benim en güzel tesadüfüm,<br>
+            en büyük huzurum ve<br>
+            kalbimin en güzel yerisin. 🌼❤️
+        </p>
+
+        <div style="font-size:35px;">
+            🌼❤️🌼❤️🌼
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function openLove() {
+
+    const box = document.querySelector(".love-box");
+    const message = document.getElementById("message");
+
+    box.classList.toggle("open");
+
+    if (message.style.display === "block") {
+        message.style.display = "none";
+    } else {
+        message.style.display = "block";
+    }
+}
+
+</script>
+
 </body>
 </html>
+```
