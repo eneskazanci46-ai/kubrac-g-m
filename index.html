@@ -4,578 +4,405 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Developer | Yazılım & Tasarım</title>
+<title>Sana Küçük Bir Sürprizim Var 🐼❤️</title>
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
-    scroll-behavior:smooth;
 }
 
 body{
-    background:#070b14;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-body:before{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    background:#2563eb;
-    filter:blur(180px);
-    opacity:.18;
-    top:-150px;
-    left:-150px;
-    z-index:-1;
-}
-
-body:after{
-    content:"";
-    position:fixed;
-    width:450px;
-    height:450px;
-    background:#9333ea;
-    filter:blur(180px);
-    opacity:.15;
-    right:-150px;
-    bottom:-100px;
-    z-index:-1;
-}
-
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(7,11,20,.75);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.06);
-    z-index:1000;
-}
-
-.logo{
-    font-size:23px;
-    font-weight:bold;
-}
-
-.logo span{
-    color:#3b82f6;
-}
-
-nav ul{
-    display:flex;
-    gap:28px;
-    list-style:none;
-}
-
-nav a{
-    color:#aaa;
-    text-decoration:none;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#fff;
-}
-
-.hero{
     min-height:100vh;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ffe4ef,#fff5f8,#ffe9d6);
     display:flex;
+    justify-content:center;
     align-items:center;
-    padding:120px 8% 60px;
+    color:#5b3544;
 }
 
-.hero-content{
-    max-width:800px;
+/* ARKA PLAN */
+
+.hearts span{
+    position:absolute;
+    font-size:22px;
+    animation:fall linear infinite;
+    opacity:.7;
 }
 
-.badge{
-    display:inline-block;
-    padding:8px 15px;
-    border:1px solid rgba(59,130,246,.4);
-    border-radius:30px;
-    color:#60a5fa;
-    background:rgba(59,130,246,.08);
-    margin-bottom:25px;
+.hearts span:nth-child(1){left:5%;animation-duration:7s;}
+.hearts span:nth-child(2){left:15%;animation-duration:10s;animation-delay:2s;}
+.hearts span:nth-child(3){left:28%;animation-duration:8s;animation-delay:1s;}
+.hearts span:nth-child(4){left:42%;animation-duration:11s;}
+.hearts span:nth-child(5){left:57%;animation-duration:8s;animation-delay:3s;}
+.hearts span:nth-child(6){left:70%;animation-duration:10s;}
+.hearts span:nth-child(7){left:84%;animation-duration:7s;animation-delay:2s;}
+.hearts span:nth-child(8){left:94%;animation-duration:12s;}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100px) rotate(0);
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+    }
 }
 
-.hero h1{
-    font-size:clamp(45px,7vw,85px);
-    line-height:1;
-    margin-bottom:25px;
+/* BALONLAR */
+
+.balloon{
+    position:absolute;
+    width:65px;
+    height:80px;
+    border-radius:50% 50% 48% 48%;
+    animation:balloonFloat 5s ease-in-out infinite;
 }
 
-.hero h1 span{
-    background:linear-gradient(90deg,#3b82f6,#a855f7);
-    -webkit-background-clip:text;
-    color:transparent;
+.balloon:after{
+    content:"";
+    position:absolute;
+    width:1px;
+    height:100px;
+    background:#ad788b;
+    left:50%;
+    top:78px;
 }
 
-.hero p{
-    color:#9ca3af;
-    font-size:19px;
-    line-height:1.7;
-    max-width:650px;
+.b1{
+    background:#ff8fab;
+    left:7%;
+    bottom:12%;
 }
 
-.buttons{
-    display:flex;
-    gap:15px;
-    margin-top:35px;
+.b2{
+    background:#ffcfdf;
+    right:8%;
+    bottom:20%;
+    animation-delay:1s;
 }
 
-.btn{
-    padding:14px 24px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:.3s;
+.b3{
+    background:#ffd166;
+    right:17%;
+    top:13%;
+    animation-delay:2s;
 }
 
-.primary{
-    background:#2563eb;
-    color:white;
+@keyframes balloonFloat{
+    0%,100%{transform:translateY(0) rotate(-3deg);}
+    50%{transform:translateY(-25px) rotate(4deg);}
 }
 
-.primary:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 30px rgba(37,99,235,.35);
-}
-
-.secondary{
-    border:1px solid #263246;
-    color:white;
-}
-
-.secondary:hover{
-    background:#111827;
-}
-
-section{
-    padding:100px 8%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.section-title h2{
-    font-size:42px;
-    margin-bottom:12px;
-}
-
-.section-title p{
-    color:#8b95a7;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.stat{
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.07);
-    padding:30px;
-    border-radius:18px;
-    text-align:center;
-}
-
-.stat h3{
-    font-size:35px;
-    color:#60a5fa;
-}
-
-.stat p{
-    color:#8993a5;
-    margin-top:8px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
+/* ANA KART */
 
 .card{
-    padding:30px;
-    border-radius:20px;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.07);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#2563eb;
-    background:rgba(37,99,235,.07);
-}
-
-.icon{
-    width:55px;
-    height:55px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#111827;
-    border-radius:14px;
-    font-size:25px;
-    margin-bottom:20px;
-}
-
-.card h3{
-    margin-bottom:12px;
-}
-
-.card p{
-    color:#8d97a8;
-    line-height:1.7;
-}
-
-.skills{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-}
-
-.skill{
-    background:rgba(255,255,255,.035);
-    padding:25px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,.07);
-}
-
-.skill-top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:12px;
-}
-
-.bar{
-    height:8px;
-    background:#18202e;
-    border-radius:10px;
-    overflow:hidden;
-}
-
-.progress{
-    height:100%;
-    background:linear-gradient(90deg,#2563eb,#9333ea);
-    border-radius:10px;
-}
-
-.projects{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.project{
-    min-height:270px;
-    border-radius:20px;
-    padding:30px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    background:linear-gradient(145deg,#111827,#0b1020);
-    border:1px solid rgba(255,255,255,.08);
-    transition:.3s;
-}
-
-.project:hover{
-    transform:translateY(-7px);
-}
-
-.project small{
-    color:#60a5fa;
-    margin-bottom:10px;
-}
-
-.project h3{
-    font-size:24px;
-    margin-bottom:10px;
-}
-
-.project p{
-    color:#8993a5;
-}
-
-.contact{
-    max-width:850px;
-    margin:auto;
+    width:min(92%,520px);
     text-align:center;
+    padding:38px 25px;
+    border-radius:32px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(15px);
+    box-shadow:0 25px 70px rgba(160,70,100,.18);
+    border:2px solid rgba(255,255,255,.8);
+    position:relative;
+    z-index:10;
 }
 
-.contact-box{
-    margin-top:35px;
-    padding:45px;
-    border-radius:25px;
-    background:linear-gradient(145deg,rgba(37,99,235,.12),rgba(147,51,234,.08));
-    border:1px solid rgba(255,255,255,.08);
+/* PANDA */
+
+.panda{
+    font-size:105px;
+    animation:panda 2.5s ease-in-out infinite;
+    filter:drop-shadow(0 10px 8px rgba(0,0,0,.12));
 }
 
-.contact-box p{
-    color:#9ca3af;
-    line-height:1.7;
+@keyframes panda{
+    0%,100%{transform:translateY(0) rotate(-3deg);}
+    50%{transform:translateY(-12px) rotate(3deg);}
+}
+
+.card h1{
+    font-size:31px;
+    margin:8px 0 12px;
+    color:#6d3048;
+}
+
+.card h1 span{
+    color:#ff4f81;
+}
+
+.subtitle{
+    color:#9b6678;
+    line-height:1.6;
     margin-bottom:25px;
 }
 
-footer{
-    text-align:center;
-    padding:35px;
-    color:#687386;
-    border-top:1px solid rgba(255,255,255,.06);
+/* KUTU */
+
+.gift{
+    width:115px;
+    height:95px;
+    background:#ff5c8a;
+    margin:20px auto;
+    position:relative;
+    border-radius:5px;
+    cursor:pointer;
+    box-shadow:0 12px 25px rgba(255,92,138,.3);
+    transition:.3s;
 }
 
-@media(max-width:850px){
+.gift:hover{
+    transform:scale(1.08);
+}
 
-    nav ul{
-        display:none;
-    }
+.gift:before{
+    content:"";
+    position:absolute;
+    width:18px;
+    height:95px;
+    background:#ffd166;
+    left:48px;
+}
 
-    .stats,
-    .cards,
-    .projects,
-    .skills{
-        grid-template-columns:1fr;
-    }
+.lid{
+    position:absolute;
+    width:130px;
+    height:25px;
+    background:#ff4775;
+    top:-20px;
+    left:-8px;
+    border-radius:7px;
+}
 
-    .hero{
-        padding-top:150px;
-    }
+.ribbon{
+    position:absolute;
+    width:25px;
+    height:25px;
+    border:6px solid #ffd166;
+    border-radius:50%;
+    top:-40px;
+}
 
-    section{
-        padding:75px 6%;
+.ribbon.left{
+    left:38px;
+}
+
+.ribbon.right{
+    left:57px;
+}
+
+.hint{
+    font-size:13px;
+    color:#a66b7d;
+    margin-top:12px;
+}
+
+/* MESAJ */
+
+.message{
+    display:none;
+    margin-top:25px;
+    padding:25px;
+    background:linear-gradient(135deg,#fff0f5,#fff9f0);
+    border-radius:22px;
+    border:1px solid #ffd1df;
+    animation:appear .7s ease;
+}
+
+.message.show{
+    display:block;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:scale(.85) translateY(20px);
     }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.message h2{
+    color:#ff4775;
+    margin-bottom:15px;
+}
+
+.message p{
+    line-height:1.8;
+    font-size:15px;
+}
+
+.love{
+    font-size:28px;
+    margin-top:15px;
+}
+
+/* ALT YAZI */
+
+.bottom{
+    margin-top:25px;
+    font-size:12px;
+    color:#b07a8b;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">&lt;<span>DEV</span>/&gt;</div>
+<!-- UÇUŞAN KALPLER -->
 
-    <ul>
-        <li><a href="#home">Ana Sayfa</a></li>
-        <li><a href="#about">Hakkımda</a></li>
-        <li><a href="#skills">Yetenekler</a></li>
-        <li><a href="#projects">Projeler</a></li>
-        <li><a href="#contact">İletişim</a></li>
-    </ul>
-</nav>
+<div class="hearts">
+    <span>❤️</span>
+    <span>💗</span>
+    <span>💕</span>
+    <span>💖</span>
+    <span>❤️</span>
+    <span>💞</span>
+    <span>💗</span>
+    <span>💖</span>
+</div>
 
-<section class="hero" id="home">
-    <div class="hero-content">
+<!-- BALONLAR -->
 
-        <div class="badge">● Açık & Yeni Projelere Hazır</div>
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
 
-        <h1>
-            Dijital fikirleri<br>
-            <span>gerçeğe dönüştürüyorum.</span>
-        </h1>
+
+<!-- ANA KART -->
+
+<div class="card">
+
+    <div class="panda">🐼</div>
+
+    <h1>
+        Günaydın <span>güzelim</span> ❤️
+    </h1>
+
+    <p class="subtitle">
+        Sabah uyandığında yüzünde küçücük de olsa
+        bir gülümseme olsun diye sana bir sürpriz hazırladım 🥹
+    </p>
+
+
+    <!-- HEDİYE KUTUSU -->
+
+    <div class="gift" onclick="openGift()">
+
+        <div class="lid"></div>
+
+        <div class="ribbon left"></div>
+        <div class="ribbon right"></div>
+
+    </div>
+
+    <div class="hint">
+        🎁 Kutunun üstüne dokun bakalım...
+    </div>
+
+
+    <!-- AÇILAN MESAJ -->
+
+    <div class="message" id="message">
+
+        <h2>İYİ Kİ VARSIN 🥹❤️</h2>
 
         <p>
-            Modern web siteleri, kullanıcı dostu arayüzler ve
-            güçlü dijital projeler geliştiriyorum. Tasarım ile
-            teknolojiyi bir araya getirerek etkileyici deneyimler oluşturuyorum.
+            Seni çok seviyorum aşkım ❤️
+            <br><br>
+
+            Hayatıma girdiğinden beri bazı şeyler
+            gerçekten daha güzel geliyor.
+            Seninle konuşmak, sesini duymak,
+            beraber gülmek hatta bazen hiçbir şey
+            yapmadan sadece yanında olmak bile
+            benim için çok değerli.
+            <br><br>
+
+            Her zaman bilmeni istediğim bir şey var;
+            ne olursa olsun yanında olmak,
+            seni desteklemek ve yüzünü güldürmek
+            istiyorum.
+            <br><br>
+
+            Bazen sana sevgimi nasıl anlatacağımı
+            bilemiyorum ama şunu biliyorum...
+            <br><br>
+
+            <b>
+            Seni bugün dünden daha çok,
+            yarın bugünden daha çok seveceğim. ❤️
+            </b>
         </p>
 
-        <div class="buttons">
-            <a href="#projects" class="btn primary">Projelerimi Gör</a>
-            <a href="#contact" class="btn secondary">Benimle İletişime Geç</a>
-        </div>
-
-    </div>
-</section>
-
-<section id="about">
-
-    <div class="section-title">
-        <h2>Hakkımda</h2>
-        <p>Ne yaptığımı biraz daha yakından keşfet.</p>
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-            <div class="icon">💻</div>
-            <h3>Web Geliştirme</h3>
-            <p>
-                Modern, hızlı ve mobil uyumlu web siteleri geliştiriyorum.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🎨</div>
-            <h3>UI / UX Tasarım</h3>
-            <p>
-                Kullanıcıların rahat kullanabileceği sade ve modern arayüzler tasarlıyorum.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">⚡</div>
-            <h3>Performans</h3>
-            <p>
-                Hızlı açılan, optimize edilmiş ve performans odaklı projeler hazırlıyorum.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<section>
-
-    <div class="stats">
-
-        <div class="stat">
-            <h3>25+</h3>
-            <p>Tamamlanan Proje</p>
-        </div>
-
-        <div class="stat">
-            <h3>2+</h3>
-            <p>Yıl Deneyim</p>
-        </div>
-
-        <div class="stat">
-            <h3>20+</h3>
-            <p>Mutlu Müşteri</p>
-        </div>
-
-        <div class="stat">
-            <h3>24/7</h3>
-            <p>Destek</p>
+        <div class="love">
+            🐼❤️🌸❤️🐼
         </div>
 
     </div>
 
-</section>
-
-<section id="skills">
-
-    <div class="section-title">
-        <h2>Yetenekler</h2>
-        <p>Kullandığım teknolojiler</p>
+    <div class="bottom">
+        Sen benim en güzel tesadüfümsün 🌸
     </div>
 
-    <div class="skills">
+</div>
 
-        <div class="skill">
-            <div class="skill-top">
-                <span>HTML / CSS</span>
-                <span>95%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" style="width:95%"></div>
-            </div>
-        </div>
 
-        <div class="skill">
-            <div class="skill-top">
-                <span>JavaScript</span>
-                <span>85%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" style="width:85%"></div>
-            </div>
-        </div>
+<script>
 
-        <div class="skill">
-            <div class="skill-top">
-                <span>React</span>
-                <span>80%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" style="width:80%"></div>
-            </div>
-        </div>
+function openGift(){
 
-        <div class="skill">
-            <div class="skill-top">
-                <span>UI / UX</span>
-                <span>90%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" style="width:90%"></div>
-            </div>
-        </div>
+    const message = document.getElementById("message");
 
-    </div>
+    message.classList.toggle("show");
 
-</section>
+    /* Kalp patlaması */
 
-<section id="projects">
+    for(let i=0;i<20;i++){
 
-    <div class="section-title">
-        <h2>Projeler</h2>
-        <p>Üzerinde çalıştığım bazı projeler</p>
-    </div>
+        const heart=document.createElement("div");
 
-    <div class="projects">
+        heart.innerHTML=["❤️","💗","💖","💕","🌸"][Math.floor(Math.random()*5)];
 
-        <div class="project">
-            <small>WEB TASARIM</small>
-            <h3>Portfolio Website</h3>
-            <p>Modern kişisel portföy web sitesi.</p>
-        </div>
+        heart.style.position="fixed";
+        heart.style.left="50%";
+        heart.style.top="50%";
+        heart.style.fontSize=(15+Math.random()*20)+"px";
+        heart.style.pointerEvents="none";
+        heart.style.zIndex="9999";
 
-        <div class="project">
-            <small>E-TİCARET</small>
-            <h3>Online Store</h3>
-            <p>Ürün satışına yönelik modern e-ticaret arayüzü.</p>
-        </div>
+        document.body.appendChild(heart);
 
-        <div class="project">
-            <small>WEB APP</small>
-            <h3>Dashboard</h3>
-            <p>Modern yönetim paneli ve istatistik sistemi.</p>
-        </div>
+        const x=(Math.random()-0.5)*500;
+        const y=(Math.random()-0.5)*500;
 
-    </div>
+        heart.animate([
+            {
+                transform:"translate(-50%,-50%) scale(0)",
+                opacity:1
+            },
+            {
+                transform:
+                `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.3)`,
+                opacity:0
+            }
+        ],{
+            duration:1200,
+            easing:"ease-out"
+        });
 
-</section>
+        setTimeout(()=>{
+            heart.remove();
+        },1200);
+    }
+}
 
-<section id="contact">
-
-    <div class="contact">
-
-        <div class="section-title">
-            <h2>Bir projen mi var?</h2>
-            <p>Fikrini birlikte gerçek bir projeye dönüştürelim.</p>
-        </div>
-
-        <div class="contact-box">
-
-            <p>
-                Web sitesi, tasarım, yazılım veya dijital proje
-                hakkında konuşmak için benimle iletişime geçebilirsin.
-            </p>
-
-            <a href="mailto:mail@example.com" class="btn primary">
-                E-posta Gönder
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<footer>
-    © 2026 Developer Portfolio — Tüm hakları saklıdır.
-</footer>
+</script>
 
 </body>
 </html>
