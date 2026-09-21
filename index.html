@@ -1,56 +1,84 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kübra ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kübra ❤️</title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    .box {
-      padding: 40px;
-    }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff4b6e, #ff8fa3);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
+        .container {
+            padding: 30px;
+        }
 
-    p {
-      font-size: 24px;
-    }
+        .heart {
+            font-size: 90px;
+            animation: heartbeat 1s infinite;
+        }
 
-    .heart {
-      font-size: 70px;
-      animation: kalp 1s infinite;
-    }
+        h1 {
+            font-size: 42px;
+            margin: 20px 0;
+        }
 
-    @keyframes kalp {
-      50% {
-        transform: scale(1.2);
-      }
-    }
-  </style>
+        p {
+            font-size: 24px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: white;
+            color: #ff4b6e;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="box">
-    <div class="heart">❤️</div>
-    <h1>Kübra seni çok seviyorum ❤️</h1>
-    <p>Çıkıyorum... Ama aklım hep sende 🥹</p>
-  </div>
+    <div class="container">
+
+        <div class="heart">❤️</div>
+
+        <h1>Kübra seni çok seviyorum ❤️</h1>
+
+        <p>Çıkıyorum ama aklım hep sende 🥹</p>
+
+        <a class="button" href="#">
+            Seni Çok Seviyorum ❤️
+        </a>
+
+    </div>
 
 </body>
 </html>
